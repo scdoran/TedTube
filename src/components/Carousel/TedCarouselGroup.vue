@@ -12,7 +12,7 @@
           :height="200"
           :item="item"
           :showAction="false"
-          :max-width="200"
+          :width="200"
           type="list"
         />
       </v-slide-item>

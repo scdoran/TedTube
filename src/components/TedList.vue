@@ -6,6 +6,7 @@
       :item="item"
       :isFavorite="item.favorite"
       :inMyWatchlist="item.watchlist"
+      :width="350"
     />
   </div>
 </template>

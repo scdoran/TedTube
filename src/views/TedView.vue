@@ -3,7 +3,7 @@
     <TedHeading :text="video.name" />
     <TedLoader :display="loading" type="list" />
     <div class="d-flex flex-column video-container">
-      <TedCard :width="width" type="video" :item="video" />
+      <TedCard type="video" :item="video" />
       <v-expansion-panels accordion focusable hover multiple>
         <v-expansion-panel>
           <v-expansion-panel-header>About the Speaker</v-expansion-panel-header>
@@ -47,7 +47,6 @@ export default {
     return {
       recent: {},
       loading: false,
-      width: 560,
     };
   },
   components: {
@@ -80,6 +79,6 @@ export default {
 
 <style lang="scss" scoped>
 .video-container {
-  max-width: 560px;
+  max-width: 1200px;
 }
 </style>

@@ -29,6 +29,21 @@
         "link": "http://www.ted.com/speakers/al_gore"
       },
       "viewCount": 2920461
+    },
+    {
+      "name": "David Keith: A critical look at geoengineering aga",
+      "id": "XkEys3PeseA",
+      "embeddedLink": "<iframe src=\"https://embed-ssl.ted.com/talks/david_keith_s_surprising_ideas_on_climate_change.html\" width=\"560\" height=\"315\" frameborder=\"0\" scrolling=\"no\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>",
+      "favorite": true,
+      "watchlist": false,
+      "thumbnail_url": "http://tedcdnpe-a.akamaihd.net/images/ted/2412c9764c6b9bed2d9bd55ec7a6b9e5402978",
+      "speaker": {
+        "name": "David Keith",
+        "bio": "David Keith studies our climate, and the many ideas we've come up with to fix it. A wildly original thinker, he challenges us to look at climate solutions that may seem daring, sometimes even shocking.nFull bio",
+        "description": "Environmental scientist",
+        "link": "http://www.ted.com/speakers/david_keith"
+      },
+      "viewCount": 751462
     }
   ],
   "recents": [
@@ -143,6 +158,21 @@
         "link": "http://www.ted.com/speakers/al_gore"
       },
       "viewCount": 2920461
+    },
+    {
+      "name": "Beverly + Dereck Joubert: Life lessons from big ca",
+      "id": "Ht6TTA8z3MI",
+      "embeddedLink": "<iframe src=\"https://embed-ssl.ted.com/talks/beverly_dereck_joubert_life_lessons_from_big_cats.html\" width=\"560\" height=\"315\" frameborder=\"0\" scrolling=\"no\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>",
+      "favorite": true,
+      "watchlist": true,
+      "thumbnail_url": "http://tedcdnpe-a.akamaihd.net/images/ted/41f8b6052db197dfd3b3feb60647066f3db590",
+      "speaker": {
+        "name": "Beverly + Dereck Joubert",
+        "bio": "Documentary filmmakers Beverly and Dereck Joubert have worked to conserve wildlife for more than 25 years. As National Geographic Explorers in Residence, the couple influences public policy and perceptions.nFull bio",
+        "description": "Conservationists, filmmakers",
+        "link": "http://www.ted.com/speakers/beverly_dereck_joubert"
+      },
+      "viewCount": 682314
     }
   ]
 }

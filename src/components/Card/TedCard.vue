@@ -47,8 +47,8 @@ export default {
       default: () => {},
     },
     width: {
-      type: Number,
-      default: () => 400,
+      type: [Number, String],
+      default: () => 'auto',
     },
     height: {
       type: Number,
