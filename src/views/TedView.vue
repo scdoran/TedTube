@@ -1,31 +1,34 @@
 <template>
   <section class="d-flex flex-column align-center">
     <TedHeading :text="video.name" />
-    <TedLoader :display="loading" type="list" />
-    <div class="d-flex flex-column video-container">
-      <TedCard type="video" :item="video" />
-      <v-expansion-panels accordion focusable hover multiple>
-        <v-expansion-panel>
-          <v-expansion-panel-header>About the Speaker</v-expansion-panel-header>
+    <TedLoader :loading="loading">
+      <div class="d-flex flex-column video-container">
+        <TedCard type="video" :item="video" />
+        <v-expansion-panel focusable>
           <v-expansion-panel-content>
+            <template v-slot:header>
+              <div>About the Speaker</div>
+            </template>
             <p>
               Speaker:
-              <a :href="video.speaker_url" target="_blank">{{
-                video.speaker
+              <a :href="video.speaker.link" target="_blank">{{
+                video.speaker.name
               }}</a
               >, {{ video.speakersDesc }}
             </p>
-            <p>Speaker Bio: {{ video.speakerBio }}</p>
+            <p>Speaker Bio: {{ video.speaker.bio }}</p>
           </v-expansion-panel-content>
         </v-expansion-panel>
         <v-expansion-panel>
-          <v-expansion-panel-header>About the Talk</v-expansion-panel-header>
           <v-expansion-panel-content>
-            <span>{{ video.talkDesc }}</span>
+            <template v-slot:header>
+              <div>About the Talk</div>
+            </template>
+            <span>{{ video.speaker.description }}</span>
           </v-expansion-panel-content>
         </v-expansion-panel>
-      </v-expansion-panels>
-    </div>
+      </div>
+    </TedLoader>
   </section>
 </template>
 

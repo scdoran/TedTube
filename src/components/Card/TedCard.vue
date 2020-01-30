@@ -8,7 +8,7 @@
     <div v-if="type === 'video'">
       <TedCardMedia type="video" :media="item" />
     </div>
-    <TedCardAction v-if="showAction">
+    <!-- <TedCardAction>
       <TedButton
         :hideBackground="true"
         :className="'card - button'"
@@ -25,7 +25,7 @@
       >
         <TedIcon :color="watchListColor" iconType="bookmark" />
       </TedButton>
-    </TedCardAction>
+    </TedCardAction> -->
     <slot></slot>
   </v-card>
 </template>
@@ -33,11 +33,8 @@
 <script>
 import { mapActions } from 'vuex';
 
-import TedButton from '@/components/TedButton';
-import TedCardAction from '@/components/Card/TedCardAction';
 import TedCardMedia from '@/components/Card/TedCardMedia';
 import TedCardTitle from '@/components/Card/TedCardTitle';
-import TedIcon from '@/components/TedIcon';
 
 export default {
   name: 'TedCard',
@@ -54,18 +51,6 @@ export default {
       type: Number,
       default: () => undefined,
     },
-    isFavorite: {
-      type: Boolean,
-      default: () => false,
-    },
-    inMyWatchlist: {
-      type: Boolean,
-      default: () => false,
-    },
-    showAction: {
-      type: Boolean,
-      default: () => true,
-    },
     type: {
       type: String,
       default: () => 'list',
@@ -81,15 +66,10 @@ export default {
     };
   },
   components: {
-    TedButton,
-    TedCardAction,
     TedCardMedia,
     TedCardTitle,
-    TedIcon,
   },
   methods: {
-    ...mapActions('favorites', ['addFavoritesAction', 'removeFavoriteAction']),
-    ...mapActions('watchlist', ['addWatchlistAction', 'removeWatchlistAction']),
     ...mapActions('search', ['updateVideoAction']),
     handleFavorite() {
       this.clonedItem.favorite = !this.inFavorites;

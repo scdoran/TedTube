@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import TedButton from '@/components/TedButton';
+import TedButton from './TedButton';
 export default {
   name: 'TedSnackbar',
   props: {

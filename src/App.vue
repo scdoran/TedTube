@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <TedNavbar title="Tube" @clicked="handleDrawer" />
+    <TedNavbar @clicked="handleDrawer" />
     <TedNavDrawer :show="drawer" title="TedTube" @closed="handleDrawer" />
     <v-content>
       <router-view />

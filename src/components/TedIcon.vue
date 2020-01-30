@@ -1,5 +1,5 @@
 <template>
-  <v-icon :color="color">mdi-{{ iconType }}</v-icon>
+  <v-icon :color="color">{{ iconType }}</v-icon>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
     },
     iconType: {
       type: String,
-      default: () => 'heart',
+      default: () => 'favorite',
     },
   },
 };

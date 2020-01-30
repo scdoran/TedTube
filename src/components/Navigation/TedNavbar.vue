@@ -1,13 +1,13 @@
 <template>
-  <v-app-bar app color="#FFEBEE" dense>
-    <v-app-bar-nav-icon @click.stop="handleClick"></v-app-bar-nav-icon>
+  <v-toolbar app color="#FFEBEE" dense>
+    <v-toolbar-side-icon @click.stop="handleClick"></v-toolbar-side-icon>
     <router-link to="/">
       <div class="d-flex align-center logo">
         <v-img
           alt="TED Logo"
           class="shrink mr-2"
           contain
-          src="@/assets/TED-logo.png"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/TED_three_letter_logo.svg/1200px-TED_three_letter_logo.svg.png"
           transition="scale-transition"
           width="40"
         />
@@ -15,7 +15,7 @@
       </div>
     </router-link>
     <v-spacer></v-spacer>
-  </v-app-bar>
+  </v-toolbar>
 </template>
 
 <script>

@@ -9,7 +9,7 @@ const formattedVideo = class Video {
     this.speaker = {
       name: video.speaker,
       bio: video.speakerBio.replace(/\\/g, ''),
-      description: video.speakersDesc,
+      description: video.talkDesc,
       link: video.speaker_url,
     };
     this.viewCount = video.viewCount;

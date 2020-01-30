@@ -2,7 +2,8 @@
   <v-select
     class="d-flex"
     :items="options"
-    placeholder="Search by"
+    :label="label"
+    :placeholder="placeholder"
     @change="handleChange"
   ></v-select>
 </template>
@@ -11,9 +12,17 @@
 export default {
   name: 'TedDropdown',
   props: {
+    label: {
+      type: String,
+      default: () => 'Search',
+    },
     options: {
       type: Array,
       default: () => [],
+    },
+    placeholder: {
+      type: String,
+      default: () => 'Make a selection',
     },
   },
   methods: {

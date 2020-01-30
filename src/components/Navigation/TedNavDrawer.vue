@@ -1,17 +1,21 @@
 <template>
-  <v-navigation-drawer :value="show" absolute left temporary>
-    <v-list nav dense>
-      <v-list-item-content>
-        <v-list-item-title>{{ title }}</v-list-item-title>
-      </v-list-item-content>
-      <v-list-item-group
-        v-model="group"
-        active-class="deep-red--text text--accent-4"
-      >
-        <TedNavDrawerItem v-for="(link, i) in links" :key="i" :item="link">
-          <TedIcon :iconType="link.icon" />
-        </TedNavDrawerItem>
-      </v-list-item-group>
+  <v-navigation-drawer :value="show" absolute temporary>
+    <v-list class="pa-1">
+      <v-list-tile avatar>
+        <v-list-tile-avatar>
+          <img src="../../../public/TED-favicon.jpg" />
+        </v-list-tile-avatar>
+
+        <v-list-tile-content>
+          <v-list-tile-title>TedTube</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+    </v-list>
+    <v-list class="pt-0" dense>
+      <v-divider></v-divider>
+      <TedNavDrawerItem v-for="(link, i) in links" :key="i" :item="link">
+        <TedIcon :iconType="link.icon" />
+      </TedNavDrawerItem>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -40,7 +44,7 @@ export default {
       group: null,
       links: [
         {
-          icon: 'help-outline',
+          icon: 'help',
           link: '/about',
           title: 'About',
         },
@@ -50,7 +54,7 @@ export default {
           title: 'Watchlist',
         },
         {
-          icon: 'heart',
+          icon: 'favorite',
           link: '/favorites',
           title: 'Favorites',
         },

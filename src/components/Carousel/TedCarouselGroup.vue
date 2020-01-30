@@ -1,13 +1,13 @@
 <template>
   <div>
-    <v-slide-group
+    <v-item-group
       v-model="model"
       class="pa-4"
       prev-icon="mdi-minus"
       next-icon="mdi-plus"
       show-arrows
     >
-      <v-slide-item v-for="item in list" :key="item.id">
+      <v-item v-for="item in list" :key="item.id">
         <TedCard
           :height="200"
           :item="item"
@@ -15,8 +15,8 @@
           :width="200"
           type="list"
         />
-      </v-slide-item>
-    </v-slide-group>
+      </v-item>
+    </v-item-group>
   </div>
 </template>
 

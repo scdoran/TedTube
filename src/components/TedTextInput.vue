@@ -3,7 +3,7 @@
     class="d-flex"
     :placeholder="placeholder"
     icon
-    :prepend-icon="'mdi-' + 'icon'"
+    :prepend-icon="icon"
     v-model="text"
     @keyup="handleChange"
   >

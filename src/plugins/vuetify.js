@@ -1,6 +1,67 @@
 import Vue from 'vue';
-import Vuetify from 'vuetify/lib';
+import Vuetify, {
+  VApp,
+  VBtn,
+  VCard,
+  VCardActions,
+  VCardTitle,
+  VContainer,
+  VContent,
+  VDivider,
+  VExpansionPanel,
+  VExpansionPanelContent,
+  VIcon,
+  VImg,
+  VItem,
+  VItemGroup,
+  VList,
+  VListTile,
+  VListTileAvatar,
+  VListTileContent,
+  VListTileTitle,
+  VNavigationDrawer,
+  VProgressCircular,
+  VSelect,
+  VSpacer,
+  VSnackbar,
+  VTextField,
+  VToolbar,
+  VToolbarSideIcon,
+  VToolbarTitle,
+} from 'vuetify/lib';
+import 'material-design-icons-iconfont';
+import 'vuetify/dist/vuetify.min.css';
 
-Vue.use(Vuetify);
-
-export default new Vuetify({});
+Vue.use(Vuetify, {
+  components: {
+    VApp,
+    VBtn,
+    VCard,
+    VCardActions,
+    VCardTitle,
+    VContainer,
+    VContent,
+    VDivider,
+    VExpansionPanel,
+    VExpansionPanelContent,
+    VIcon,
+    VImg,
+    VItem,
+    VItemGroup,
+    VList,
+    VListTile,
+    VListTileAvatar,
+    VListTileContent,
+    VListTileTitle,
+    VNavigationDrawer,
+    VProgressCircular,
+    VSelect,
+    VSpacer,
+    VSnackbar,
+    VTextField,
+    VToolbar,
+    VToolbarSideIcon,
+    VToolbarTitle,
+  },
+  iconfont: 'md',
+});

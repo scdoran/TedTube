@@ -1,29 +1,21 @@
 <template>
   <v-container fluid>
-    <v-row class="flex-md-row justify-center align-center search-bar-container">
-      <v-col cols="4" sm="2">
-        <TedDropdown
-          :options="options"
-          placeholder="Search by"
-          @itemSelection="updateSelection"
-        />
-      </v-col>
-      <v-col cols="5" sm="3">
-        <TedTextInput
-          placeholder="Search..."
-          icon="magnify"
-          @updatedText="updateQuery"
-        />
-      </v-col>
-      <v-col cols="2" sm="1">
-        <TedButton
-          size="x-small"
-          className="red darken-4 red--text text--lighten-5"
-          @clicked="sendQuery"
-          text="Go"
-        />
-      </v-col>
-    </v-row>
+    <TedDropdown
+      :options="options"
+      placeholder="Search by"
+      @itemSelection="updateSelection"
+    />
+    <TedTextInput
+      placeholder="Search..."
+      icon="magnify"
+      @updatedText="updateQuery"
+    />
+    <TedButton
+      :small="true"
+      className="red darken-4 red--text text--lighten-5"
+      @clicked="sendQuery"
+      text="Go"
+    />
   </v-container>
 </template>
 

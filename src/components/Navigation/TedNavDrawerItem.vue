@@ -1,9 +1,11 @@
 <template>
   <router-link :to="item.link">
-    <v-list-item>
-      <slot></slot>
-      <v-list-item-title>{{ item.title | formatText }}</v-list-item-title>
-    </v-list-item>
+    <v-list-tile>
+      <v-list-tile-content>
+        <slot></slot>
+        <v-list-tile-title>{{ item.title | formatText }}</v-list-tile-title>
+      </v-list-tile-content>
+    </v-list-tile>
   </router-link>
 </template>
 

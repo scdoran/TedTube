@@ -2,8 +2,8 @@
   <v-btn
     :class="className"
     :color="color"
-    size
-    :text="hideBackground"
+    :small="small"
+    :flat="hideBackground"
     @click="handleClick"
   >
     <span v-if="!icon">{{ text }}</span>
@@ -31,9 +31,9 @@ export default {
       type: Boolean,
       default: () => false,
     },
-    size: {
-      type: String,
-      default: () => 'x-small',
+    small: {
+      type: Boolean,
+      default: () => false,
     },
     text: {
       type: String,

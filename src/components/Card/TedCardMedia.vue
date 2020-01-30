@@ -3,10 +3,12 @@
     <router-link :to="{ name: 'view', params: { id: media.id, video: media } }">
       <v-img
         v-if="type === 'image'"
-        :src="media.thumbnail_url ? 'media.thumbnail_url' : ''"
+        alt="video thumbnail"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/TED_three_letter_logo.svg/1200px-TED_three_letter_logo.svg.png"
         class="white--text align-end"
         gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
         height="200px"
+        contain
       >
         <slot></slot>
       </v-img>
