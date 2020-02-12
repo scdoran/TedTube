@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer :value="show" absolute temporary>
+  <v-navigation-drawer v-model="showDrawer" absolute temporary>
     <v-list class="pa-1">
       <v-list-tile avatar>
         <v-list-tile-avatar>
@@ -13,20 +13,16 @@
     </v-list>
     <v-list class="pt-0" dense>
       <v-divider></v-divider>
-      <TedNavDrawerItem v-for="(link, i) in links" :key="i" :item="link">
-        <TedIcon :iconType="link.icon" />
-      </TedNavDrawerItem>
+      <TedNavDrawerItem v-for="(link, i) in links" :key="i" :item="link" />
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script>
-import TedIcon from '@/components/TedIcon';
 import TedNavDrawerItem from '@/components/Navigation/TedNavDrawerItem';
 export default {
   name: 'TedNavDrawer',
   components: {
-    TedIcon,
     TedNavDrawerItem,
   },
   props: {
@@ -49,17 +45,17 @@ export default {
           title: 'About',
         },
         {
-          icon: 'bookmark',
-          link: '/watchlist',
-          title: 'Watchlist',
-        },
-        {
           icon: 'favorite',
           link: '/favorites',
           title: 'Favorites',
         },
         {
-          icon: 'magnify',
+          icon: 'bookmark',
+          link: '/watchlist',
+          title: 'Watchlist',
+        },
+        {
+          icon: 'search',
           link: '/search',
           title: 'Search',
         },
@@ -71,15 +67,23 @@ export default {
     emitClosed() {
       this.$emit('closed', this.showDrawer);
     },
-    handleDrawer() {
-      this.showDrawer = false;
-      this.emitClosed();
-    },
   },
   watch: {
-    group() {
-      this.showDrawer = false;
-      this.emitClosed();
+    show: {
+      immediate: true,
+      deep: false,
+      handler(newValue) {
+        this.showDrawer = newValue;
+      },
+    },
+    showDrawer: {
+      immediate: true,
+      deep: false,
+      handler() {
+        if (!this.showDrawer) {
+          this.emitClosed();
+        }
+      },
     },
   },
 };

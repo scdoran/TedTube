@@ -1,25 +1,18 @@
-import Vue from "vue";
-import Vuetify, {
-  VApp
-} from "vuetify/lib";
+import Vue from 'vue';
+import Vuetify from 'vuetify/lib';
 import {
   addParameters,
   configure
-} from "@storybook/vue";
+} from '@storybook/vue';
 import {
   DocsPage,
   DocsContainer
 } from '@storybook/addon-docs/blocks';
+import '../src/plugins/vuetify';
 
-import "../src/plugins/vuetify";
+Vue.use(Vuetify);
 
-Vue.use(Vuetify, {
-  components: {
-    VApp,
-  }
-});
-
-const req = require.context("../src", true, /\.stories\.js$/);
+const req = require.context('../src', true, /\.stories\.js$/);
 
 addParameters({
   docs: {

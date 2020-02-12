@@ -1,36 +1,72 @@
 <template>
-  <div>
-    <blockquote class="blockquote center">
-      Welcome to TED Search! Start searching for TED talks by speaker name, talk
-      name or talk description.
-    </blockquote>
-    <SearchBar @search="handleSearch" />
-    <section v-if="recents && recents.length" class="content-container">
+  <TedContainer>
+    <v-flex xs12>
+      <TedHeading
+        text="Welcome to TED Search! Start searching for TED talks by speaker name, talk
+        name or talk description."
+      />
+      <SearchBar @search="handleSearch" />
+    </v-flex>
+    <v-content v-if="recents && recents.length" text-xs-center>
       <TedSubheading text="Recently Watched" />
-      <TedCarouselGroup :list="recents" />
-    </section>
-    <section v-if="favorites && favorites.length" class="content-container">
+      <TedList :results="recents">
+        <TedCard
+          v-for="(item, i) in recents"
+          :key="i"
+          :item="item"
+          type="image"
+          :height="200"
+          :width="200"
+          size="x-small"
+        />
+      </TedList>
+    </v-content>
+    <v-content v-if="favorites && favorites.length" text-xs-center>
       <TedSubheading text="In Your Favorites" />
-      <TedCarouselGroup :list="favorites" />
-    </section>
-    <section v-if="watchlist && watchlist.length" class="content-container">
+      <TedList :results="favorites">
+        <TedCard
+          v-for="(item, i) in favorites"
+          :key="i"
+          :item="item"
+          type="image"
+          :height="200"
+          :width="200"
+        />
+      </TedList>
+    </v-content>
+    <v-content v-if="watchlist && watchlist.length" text-xs-center>
       <TedSubheading text="In Your Watchlist" />
-      <TedCarouselGroup :list="watchlist" />
-    </section>
-  </div>
+      <TedList :results="watchlist">
+        <TedCard
+          v-for="(item, i) in watchlist"
+          :key="i"
+          :item="item"
+          type="image"
+          :height="200"
+          :width="200"
+        />
+      </TedList>
+    </v-content>
+  </TedContainer>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex';
 import SearchBar from '@/components/Search/SearchBar.vue';
-import TedCarouselGroup from '@/components/Carousel/TedCarouselGroup';
+import TedCard from '@/components/Card/TedCard';
+import TedContainer from '@/components/TedContainer';
+import TedHeading from '@/components/TedHeading';
+import TedList from '@/components/TedList';
 import TedSubheading from '@/components/TedSubheading';
 
 export default {
   name: 'TedHome',
   components: {
     SearchBar,
-    TedCarouselGroup,
+    TedCard,
+    TedContainer,
+    TedHeading,
+    TedList,
     TedSubheading,
   },
   methods: {
@@ -56,13 +92,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.v-application .blockquote {
-  padding-left: 0;
-}
-
-.blockquote.center {
-  text-align: center;
-}
-</style>

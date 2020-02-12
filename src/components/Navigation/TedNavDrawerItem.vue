@@ -1,15 +1,17 @@
 <template>
-  <router-link :to="item.link">
-    <v-list-tile>
-      <v-list-tile-content>
-        <slot></slot>
-        <v-list-tile-title>{{ item.title | formatText }}</v-list-tile-title>
-      </v-list-tile-content>
-    </v-list-tile>
-  </router-link>
+  <v-list-tile @click="redirect(item.link)">
+    <v-list-tile-action>
+      <TedIcon :iconType="item.icon" />
+    </v-list-tile-action>
+    <v-list-tile-content>
+      <v-list-tile-title>{{ item.title | formatText }}</v-list-tile-title>
+    </v-list-tile-content>
+  </v-list-tile>
 </template>
 
 <script>
+import TedIcon from '@/components/TedIcon';
+
 export default {
   name: 'TedNavDrawerItem',
   props: {
@@ -18,9 +20,17 @@ export default {
       default: () => '/',
     },
   },
+  components: {
+    TedIcon,
+  },
   filters: {
     formatText: function(text) {
       return text.replace(text.charAt(0), text.charAt(0).toUpperCase());
+    },
+  },
+  methods: {
+    redirect(path) {
+      this.$router.push(path);
     },
   },
 };

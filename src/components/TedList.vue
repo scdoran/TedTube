@@ -1,30 +1,36 @@
 <template>
-  <section class="ted-result-list">
-    <div v-if="results && results.length">
-      <slot></slot>
-    </div>
-    <div v-if="!results">
-      <slot></slot>
-    </div>
-  </section>
+  <TedContainer class="ted-result-list">
+    <TedLoader :loading="loading">
+      <TedContainer v-if="results && results.length">
+        <slot></slot>
+      </TedContainer>
+      <TedContainer v-if="!results || (results && !results.length)" row wrap>
+        <TedSubheading text="Nothing to see here!" />
+      </TedContainer>
+    </TedLoader>
+  </TedContainer>
 </template>
 
 <script>
+import TedContainer from './TedContainer';
+import TedLoader from './TedLoader';
+import TedSubheading from './TedSubheading';
 export default {
   name: 'TedList',
   props: {
+    loading: {
+      type: Boolean,
+      default: () => false,
+    },
     results: {
       type: Array,
       default: () => [],
     },
   },
+  components: {
+    TedContainer,
+    TedLoader,
+    TedSubheading,
+  },
 };
 </script>
-
-<style lang="scss" scoped>
-.ted-result-list {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-}
-</style>

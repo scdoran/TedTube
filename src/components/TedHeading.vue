@@ -1,5 +1,7 @@
 <template>
-  <h3 class="headline text-center pa-6">{{ text | toUpperCase(uppercase) }}</h3>
+  <h3 class="display-2 ted-heading">
+    {{ text | toUpperCase(uppercase) }}
+  </h3>
 </template>
 
 <script>
@@ -23,5 +25,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

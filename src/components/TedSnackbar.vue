@@ -1,12 +1,12 @@
 <template>
   <div>
-    <v-snackbar v-model="show">
+    <v-snackbar v-model="display" :timeout="5000">
       {{ message }}
       <TedButton
         :hideBackground="true"
         color="white"
         text="Close"
-        @clicked="show = false"
+        @clicked="display = false"
       />
     </v-snackbar>
   </div>
@@ -25,6 +25,11 @@ export default {
       type: Boolean,
       default: () => false,
     },
+  },
+  data() {
+    return {
+      display: this.show,
+    };
   },
   components: {
     TedButton,

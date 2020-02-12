@@ -1,47 +1,36 @@
 <template>
-  <v-card class="ma-4" hover :max-width="width" :height="height">
-    <div v-if="type === 'list'">
-      <TedCardMedia type="image" :media="item">
-        <TedCardTitle :title="item.name" />
-      </TedCardMedia>
-    </div>
-    <div v-if="type === 'video'">
-      <TedCardMedia type="video" :media="item" />
-    </div>
-    <!-- <TedCardAction>
-      <TedButton
-        :hideBackground="true"
-        :className="'card - button'"
-        :icon="true"
-        @clicked="handleFavorite"
-      >
-        <TedIcon :color="favoriteColor" iconType="heart" />
-      </TedButton>
-      <TedButton
-        :hideBackground="true"
-        :className="'card-button'"
-        :icon="true"
-        @clicked="handleWatchlist"
-      >
-        <TedIcon :color="watchListColor" iconType="bookmark" />
-      </TedButton>
-    </TedCardAction> -->
+  <v-card class="ma-3" hover :width="width" :height="height">
+    <router-link
+      v-if="type === 'image'"
+      :to="{ name: 'view', params: { id: item.id, video: item } }"
+    >
+      <TedCardMedia
+        :type="type"
+        :media="item.thumbnail_url"
+        :title="item.name"
+      />
+    </router-link>
+    <TedCardMedia
+      v-if="type === 'video'"
+      :type="type"
+      :media="item.embeddedLink"
+    />
     <slot></slot>
   </v-card>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
-import TedCardMedia from '@/components/Card/TedCardMedia';
-import TedCardTitle from '@/components/Card/TedCardTitle';
-
+import TedCardMedia from './TedCardMedia';
 export default {
   name: 'TedCard',
   props: {
     item: {
       type: Object,
       default: () => {},
+    },
+    type: {
+      type: String,
+      default: () => 'image',
     },
     width: {
       type: [Number, String],
@@ -51,53 +40,13 @@ export default {
       type: Number,
       default: () => undefined,
     },
-    type: {
+    size: {
       type: String,
-      default: () => 'list',
+      default: () => 'small',
     },
-  },
-  data() {
-    return {
-      inFavorites: this.isFavorite,
-      favoriteColor: this.isFavorite ? 'red' : '',
-      clonedItem: { ...this.item },
-      inWatchlist: this.inMyWatchlist,
-      watchListColor: this.inMyWatchlist ? 'blue' : '',
-    };
   },
   components: {
     TedCardMedia,
-    TedCardTitle,
-  },
-  methods: {
-    ...mapActions('search', ['updateVideoAction']),
-    handleFavorite() {
-      this.clonedItem.favorite = !this.inFavorites;
-      if (this.inFavorites) {
-        this.favoriteColor = '';
-        this.removeFavoriteAction(this.clonedItem);
-      } else {
-        this.favoriteColor = 'red';
-        this.addFavoritesAction(this.clonedItem);
-      }
-      this.updateVideo(this.clonedItem);
-      this.inFavorites = !this.inFavorites;
-    },
-    handleWatchlist() {
-      this.clonedItem.watchlist = !this.inWatchlist;
-      if (this.inWatchlist) {
-        this.watchListColor = '';
-        this.removeWatchlistAction(this.clonedItem);
-      } else {
-        this.watchListColor = 'blue';
-        this.addWatchlistAction(this.clonedItem);
-      }
-      this.updateVideo(this.clonedItem);
-      this.inWatchlist = !this.inWatchlist;
-    },
-    updateVideo(video) {
-      this.updateVideoAction(video);
-    },
   },
 };
 </script>

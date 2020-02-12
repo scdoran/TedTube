@@ -1,5 +1,5 @@
 <template>
-  <h3 class="subtitle-2 text-center pa-6">
+  <h3 class="title pa-6">
     {{ text | toUpperCase(uppercase) }}
   </h3>
 </template>

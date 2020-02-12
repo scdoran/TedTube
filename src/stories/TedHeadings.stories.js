@@ -8,6 +8,7 @@ export default {
   title: 'TedHeadings',
   components: [TedHeading, TedSubheading],
   decorators: [withA11y, withKnobs],
+  excludeStories: /.*Data$/,
 };
 
 const headingTemplate = `<TedHeading :text="text" :uppercase="uppercase" />`;

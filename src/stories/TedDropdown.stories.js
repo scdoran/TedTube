@@ -1,12 +1,14 @@
 import { action } from '@storybook/addon-actions';
 import { withA11y } from '@storybook/addon-a11y';
+import { withKnobs, text, object } from '@storybook/addon-knobs';
 
 import TedDropdown from '../components/TedDropdown';
 
 export default {
   title: 'TedDropdown',
   component: TedDropdown,
-  decorators: [withA11y],
+  decorators: [withA11y, withKnobs],
+  excludeStories: /.*Data$/,
 };
 
 const dropdownTemplate = `<TedDropdown @itemSelection="action" :options="options" :label="label" :placeholder="placeholder" />`;
@@ -37,13 +39,13 @@ export const Default = () => ({
   template: dropdownTemplate,
   props: {
     label: {
-      default: dropdownData.label,
+      default: text('Label', dropdownData.label),
     },
     options: {
-      default: dropdownData.options,
+      default: object('Options', dropdownData.options),
     },
     placeholder: {
-      default: dropdownData.placeholder,
+      default: text('Placeholder Text', dropdownData.placeholder),
     },
   },
   methods: {

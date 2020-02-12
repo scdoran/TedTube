@@ -1,11 +1,11 @@
 <template>
-  <section>
+  <v-flex xs12>
     <v-progress-circular v-if="loading" indeterminate color="red">
     </v-progress-circular>
     <div v-if="!loading">
       <slot></slot>
     </div>
-  </section>
+  </v-flex>
 </template>
 
 <script>

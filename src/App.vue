@@ -1,7 +1,6 @@
 <template>
   <v-app>
-    <TedNavbar @clicked="handleDrawer" />
-    <TedNavDrawer :show="drawer" title="TedTube" @closed="handleDrawer" />
+    <TedNavbar />
     <v-content>
       <router-view />
     </v-content>
@@ -10,23 +9,11 @@
 
 <script>
 import TedNavbar from '@/components/Navigation/TedNavbar';
-import TedNavDrawer from '@/components/Navigation/TedNavDrawer';
 
 export default {
   name: 'App',
-  data() {
-    return {
-      drawer: false,
-    };
-  },
   components: {
     TedNavbar,
-    TedNavDrawer,
-  },
-  methods: {
-    handleDrawer(show) {
-      this.drawer = show;
-    },
   },
 };
 </script>

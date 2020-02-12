@@ -3,8 +3,8 @@ const formattedVideo = class Video {
     this.name = video.name;
     this.id = video.youTubeID;
     this.embeddedLink = video.embeddedLink.replace(/\\/g, '');
-    this.favorite = false;
-    this.watchlist = false;
+    this.favorite = !!video.favorite;
+    this.watchlist = !!video.watchlist;
     this.thumbnail_url = video.thumbnail_url;
     this.speaker = {
       name: video.speaker,

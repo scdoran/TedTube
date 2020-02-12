@@ -19,7 +19,7 @@ const mutations = {
     state.videos = videos;
   },
   [UPDATE_VIDEO](state, video) {
-    const videoToUpdate = state.videos.findIndex(id => video.id === id);
+    const videoToUpdate = state.videos.findIndex(item => video.id === item.id);
     state.videos.splice(videoToUpdate, 1, video);
     state.videos = [...state.videos];
   },
