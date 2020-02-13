@@ -1,6 +1,7 @@
 <template>
   <v-select
     class="d-flex"
+    data-test="tedDropdown"
     :items="options"
     :label="label"
     :placeholder="placeholder"

@@ -2,11 +2,12 @@
   <v-btn
     :class="className"
     :color="color"
+    data-test="tedButton"
     :small="small"
     :flat="hideBackground"
     @click="handleClick"
   >
-    <span v-if="!icon">{{ text }}</span>
+    <span v-if="!icon" class="ted-button-text">{{ text }}</span>
     <slot></slot>
   </v-btn>
 </template>

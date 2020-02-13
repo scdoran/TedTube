@@ -1,6 +1,7 @@
 <template>
   <v-text-field
     class="d-flex"
+    data-test="tedInputField"
     :placeholder="placeholder"
     icon
     :prepend-icon="icon"
